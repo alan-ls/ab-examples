@@ -4,6 +4,7 @@ import time
 
 from autobahn.asyncio.component import Component
 from autobahn.asyncio.component import run
+import txaio
 
 ################################################################################
 # Variable that can be controlled from the environment
@@ -97,6 +98,9 @@ class Publish:
 # Start of the script when called from prompt
 
 if __name__ == "__main__":
+
+    txaio.use_asyncio()
+    txaio.start_logging(level="critical")
 
     pub = Publish()
     pub.start()
