@@ -62,3 +62,16 @@ To simulate a pubsub exchange, you need 2 terminals.
 You'll see messages printed on both sides showing the publisher publishing different type of messages and the subscriber echoing them.
 You'll then be able to send your own messages.
 To exit hit enter `Over and Out!` or hit `Ctrl-D`.
+
+## RPC
+To simulate RPC calls, you need 2 terminals.
+1. Register to a URL for RPC
+``` bash
+% make register
+```
+2. Launch the caller
+``` bash
+% make call
+```
+
+You'll be prompted to enter 2 numbers. Invalid input will report an error as raised on the registered side and relayed by the router to the caller.

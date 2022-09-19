@@ -18,6 +18,16 @@ subscribe: ${VENV}
 	source .venv/${VENV}/bin/activate;\
 		python -m subscribe
 
+.PHONY: register
+register: ${VENV}
+	source .venv/${VENV}/bin/activate;\
+		python -m register
+
+.PHONY: call
+call: ${VENV}
+	source .venv/${VENV}/bin/activate;\
+		python -m call
+
 .PHONY: ${VENV}
 ${VENV}: .venv/${VENV}/touch-file
 
