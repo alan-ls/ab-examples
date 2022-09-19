@@ -47,3 +47,18 @@ Joined realm io.bondy.my from session 762962482670083
 ^C2022-09-16T22:53:02 Shutting down due to SIGINT
 Done.
 ```
+
+## PubSub
+To simulate a pubsub exchange, you need 2 terminals.
+1. Launch the subscriber
+``` bash
+% make subscribe
+```
+2. Launch the publisher
+``` bash
+% make publish
+```
+
+You'll see messages printed on both sides showing the publisher publishing different type of messages and the subscriber echoing them.
+You'll then be able to send your own messages.
+To exit hit enter `Over and Out!` or hit `Ctrl-D`.

@@ -8,6 +8,16 @@ connect: ${VENV}
 	source .venv/${VENV}/bin/activate;\
 		python -m connect
 
+.PHONY: publish
+publish: ${VENV}
+	source .venv/${VENV}/bin/activate;\
+		python -m publish
+
+.PHONY: subscribe
+subscribe: ${VENV}
+	source .venv/${VENV}/bin/activate;\
+		python -m subscribe
+
 .PHONY: ${VENV}
 ${VENV}: .venv/${VENV}/touch-file
 
