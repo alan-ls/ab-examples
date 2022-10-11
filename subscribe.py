@@ -11,6 +11,7 @@ BONDY_URL = os.getenv("BONDY_URL", "ws://localhost:18080/ws")
 BONDY_REALM = os.getenv("BONDY_REALM", "io.bondy.my")
 AUTH_METHOD = os.getenv("AUTH_METHOD", "anonymous")
 PUBSUB_TOPIC = os.getenv("PUBSUB_TOPIC", "io.bondy.news")
+PUBSUB_EXIT_MESSAGE = os.getenv("PUBSUB_EXIT_MESSAGE", "Over and Out!")
 
 AUTHENTICATION_CONFIG = {"anonymous": None}
 
@@ -53,7 +54,9 @@ class Subscribe:
         self._session = session
         print(f"Subscribe to {PUBSUB_TOPIC}")
         self._subscription = await session.subscribe(self.on_event, PUBSUB_TOPIC)
-        print("Waiting to publications...")
+        print(
+            f"Waiting to publications...\t(Exit when '{PUBSUB_EXIT_MESSAGE}' message is received)"
+        )
 
     def _on_leave(self, session, details):
         print(

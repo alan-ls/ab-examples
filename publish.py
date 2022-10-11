@@ -12,6 +12,7 @@ BONDY_URL = os.getenv("BONDY_URL", "ws://localhost:18080/ws")
 BONDY_REALM = os.getenv("BONDY_REALM", "io.bondy.my")
 AUTH_METHOD = os.getenv("AUTH_METHOD", "anonymous")
 PUBSUB_TOPIC = os.getenv("PUBSUB_TOPIC", "io.bondy.news")
+PUBSUB_EXIT_MESSAGE = os.getenv("PUBSUB_EXIT_MESSAGE", "Over and Out!")
 
 AUTHENTICATION_CONFIG = {"anonymous": None}
 
@@ -84,8 +85,10 @@ class Publish:
 
         message = None
         try:
-            while message != "Over and Out!":
-                message = input("Your message: ")
+            while message != PUBSUB_EXIT_MESSAGE:
+                message = input(
+                    f"Your message ('{PUBSUB_EXIT_MESSAGE}' to publish and exit): "
+                )
                 self._session.publish(PUBSUB_TOPIC, message)
 
         except EOFError:

@@ -77,7 +77,7 @@ source .venv/venv/bin/activate;\
 	python -m subscribe
 Joined realm com.thing.system from session 4993563508923879
 Subscribe to com.thing.system.news
-Waiting to publications...
+Waiting to publications...	(Exit when 'Over and Out!' message is received)
 Received an empty message.
 Received a message with 1 positional args: ('Hello!',)
 Received a message with 1 positional args: (['Here is a list of', 3, 'arguments'],)
@@ -102,8 +102,8 @@ Publish a message as a string
 Publish a message as a list
 Publish a message with keyword arguments
 Publish a message with some positional and keyword args
-Your message: This is important!
-Your message: Over and Out!
+Your message ('Over and Out!' to publish and exit): This is important!
+Your message ('Over and Out!' to publish and exit): Over and Out!
 Left realm com.thing.system from session None because Session closed by client. (wamp.close.goodbye_and_out)
 Done.
 </pre>

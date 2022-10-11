@@ -1,0 +1,111 @@
+[
+    {
+        "uri": "io.bondy.my",
+        "authmethods": [
+            "anonymous"
+        ],
+        "security_enabled": true,
+        "users": [],
+        "groups": [],
+        "grants": [
+            {
+                "permissions": [
+                    "wamp.call",
+                    "wamp.publish",
+                    "wamp.register",
+                    "wamp.subscribe",
+                    "wamp.unregister",
+                    "wamp.unsubscribe"
+                ],
+                "resources": [
+                    {
+                        "uri": "io.bondy.",
+                        "match": "prefix"
+                    }
+                ],
+                "roles": [
+                    "anonymous"
+                ]
+            }
+        ],
+        "sources": [
+            {
+                "usernames": [ "anonymous" ],
+                "authmethod": "anonymous",
+                "cidr": "0.0.0.0/0"
+            }
+        ]
+    },
+    {
+        "uri" : "com.leapsight.bondy",
+        "authmethods" : ["wampcra", "anonymous", "password", "trust"],
+        "security_enabled" : true,
+        "users" : [
+            {
+                "username" : "urn:user:1",
+                "password": "123456"
+            }
+        ],
+        "groups" : [
+            {
+                "name" : "administrators",
+                "groups" : [],
+                "meta" : {
+                    "description": "The administrators of Bondy."
+                }
+            }
+        ],
+        "sources" : [
+            {
+                "usernames" : "all",
+                "authmethod" : "wampcra",
+                "cidr" : "0.0.0.0/0",
+                "meta" : {
+                "description" : "Allows all users from any network authenticate using password credentials."
+                }
+            },
+            {
+                "usernames" : "all",
+                "authmethod" : "cryptosign",
+                "cidr" : "0.0.0.0/0",
+                "meta" : {
+                "description" : "Allows all users from any network authenticate using password credentials."
+                }
+            },
+            {
+                "usernames" : ["anonymous"],
+                "authmethod" : "anonymous",
+                "cidr" : "0.0.0.0/0",
+                "meta" : {
+                "description" : "Allows all users from any network authenticate as anonymous."
+                }
+            }
+        ],
+        "grants" : [
+            {
+                "permissions" : [
+                    "wamp.subscribe",
+                    "wamp.unsubscribe",
+                    "wamp.call",
+                    "wamp.cancel",
+                    "wamp.publish"
+                ],
+                "uri" : "",
+                "match" : "prefix",
+                "roles" : "all"
+            },
+            {
+                "permissions" : [
+                    "wamp.subscribe",
+                    "wamp.unsubscribe",
+                    "wamp.call",
+                    "wamp.cancel",
+                    "wamp.publish"
+                ],
+                "uri" : "",
+                "match" : "prefix",
+                "roles" : ["anonymous"]
+            }
+        ]
+    }
+]
